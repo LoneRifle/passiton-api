@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: cloudflare
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo CF_ACCOUNT_ID=${{ secrets.CF_ACCOUNT_ID }} >> $GITHUB_ENV
+          echo PASSITON_API_KEY=${{ secrets.PASSITON_API_KEY }} >> $GITHUB_ENV
+      - name: wrangler publish
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: cloudflare
+          secrets: |
+            PASSITON_API_KEY
