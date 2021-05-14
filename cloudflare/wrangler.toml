@@ -1,0 +1,10 @@
+name = "passiton-kv"
+type = "webpack"
+
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+kv_namespaces = [ 
+  { binding = "PASSITON", id = "874c3b6b86eb45088981e82a9fc93fcc", preview_id = "44df78ba760543eb976d530cd1b371b7" }
+]
