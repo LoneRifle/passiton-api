@@ -1,0 +1,23 @@
+{
+  "name": "passiton-scraper",
+  "version": "0.0.1",
+  "description": "Scrapes PassItOn.org.sg for data to export to Cloudflare KV",
+  "main": "netlify/functions/scrape-passiton.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoneRifle/passiton-api.git"
+  },
+  "author": "LoneRifle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoneRifle/passiton-api/issues"
+  },
+  "homepage": "https://github.com/LoneRifle/passiton-api#readme",
+  "dependencies": {
+    "cheerio": "*",
+    "got": "^11.8.2"
+  }
+}
