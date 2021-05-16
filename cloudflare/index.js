@@ -10,7 +10,7 @@ async function passItOnLookup(dateStr) {
 }
 
 passItOn.get('/', async (request) => {
-  const dateStr = (request.query || {}).date || Date.now()
+  const dateStr = (request.query || {}).date || Date.now() - (24 * 3600 * 1000)
   const result = await passItOnLookup(dateStr)
   return new Response(JSON.stringify(result), {
     status: result ? 200 : 404,
@@ -19,7 +19,7 @@ passItOn.get('/', async (request) => {
 })
 
 passItOn.get('/offers', async (request)  => {
-  const dateStr = (request.query || {}).date || Date.now()
+  const dateStr = (request.query || {}).date || Date.now() - (24 * 3600 * 1000)
   const { offers } = (await passItOnLookup(dateStr)) || {}
 
   return new Response(JSON.stringify(offers), {
@@ -29,7 +29,7 @@ passItOn.get('/offers', async (request)  => {
 })
 
 passItOn.get('/requests', async (request)  => {
-  const dateStr = (request.query || {}).date || Date.now()
+  const dateStr = (request.query || {}).date || Date.now() - (24 * 3600 * 1000)
   const { requests } = (await passItOnLookup(dateStr)) || {}
 
   return new Response(JSON.stringify(requests), {
